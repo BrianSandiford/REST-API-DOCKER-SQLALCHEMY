@@ -18,7 +18,7 @@ curl -XPOST -H "Content-type: application/json" -d \
 '127.0.0.1:5000/add'
 
 curl -X PATCH  -H "Content-type: application/json" -d \
-> '{"name": "catty mcCatFace", "price": 9000, "breed": "bengal"}' \
-> '127.0.0.1:5000/edit/1'
+ '{"name": "catty mcCatFace", "price": 9000, "breed": "bengal"}' \
+0 '127.0.0.1:5000/edit/1'
 
 
