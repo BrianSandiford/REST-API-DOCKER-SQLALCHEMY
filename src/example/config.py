@@ -7,3 +7,5 @@ database = os.environ['POSTGRES_DB']
 port = os.environ['POSTGRES_PORT']
 
 DATABASE_CONNECTION_URI = f'postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}'
+#DATABASE_CONNECTION_URI = 'sqlite:///' empty database to jumpstar migration on existing project
+
