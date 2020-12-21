@@ -32,7 +32,7 @@ RUN export FLASK_APP=src/example/app.py
 #COPY entrypoint.sh .
 RUN chmod u+x entrypoint.sh
 
-CMD python -m ptvsd --host 0.0.0.0 --port 5678 --wait --multiprocess -m flask run -h 0.0.0 -p 5000
+#CMD python -m ptvsd --host 0.0.0.0 --port 5678 --wait --multiprocess -m flask run -h 0.0.0 -p 5000
 #CMD python -m ptvsd --host 0.0.0.0 --port 5678 --wait --multiprocess -m start.py runserver -d --host 0.0.0.0
 ##CMD python -m ptvsd --host 0.0.0.0 --port 5678 --wait app.py
 CMD ["/bin/sh", "entrypoint.sh"]
