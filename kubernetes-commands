@@ -1,0 +1,10 @@
+kubectl create ns example-app
+kubectl apply -n example-app -f persistentvolumeclaim.yaml
+kubectl apply -n example-app -f persistentvolume.yaml
+kubectl apply -n example-app -f postgres-with-pv.yaml
+kubectl apply -n example-app -f deployment.yaml
+
+kubectl delete statefulset postgres -n example-app
+kubectl delete service postgres -n example-app
+kubectl delete service demodockerfileapp -n example-app
+kubectl delete deployment demodockerfileapp -n example-app
