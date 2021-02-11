@@ -1,0 +1,22 @@
+---
+- hosts: build_host
+  gather_facts: no
+
+  tasks:
+  - name: create docker image using Dockerfile
+    command: docker build -t demodockerfileapp:latest .
+    args:
+      chdir: /root/demo-dockerfile
+
+  - name: create tag to image
+    command: docker tag demodockerfileapp briansandiford/demodockerfileapp
+
+  - name: push image to dockerhub
+    command: docker push briansandiford/demodockerfileapp
+ 
+  - name: remove docker images from build server
+    command: docker rmi demodockerfileapp:latest briansandiford/demodockerfileapp
+    ignore_errors: yes
+
+           
+ 

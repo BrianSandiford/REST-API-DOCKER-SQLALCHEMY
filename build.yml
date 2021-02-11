@@ -1,0 +1,30 @@
+---
+- hosts: build_host
+  gather_facts: no
+  tasks:
+    - name: create build directory
+      file:
+        path: /root/demo-dockerfile
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+    - name: copy Dockerfile
+      copy:
+        src: .
+        dest: /root/demo-dockerfile/
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: remove docker image
+      command: docker rmi demo-dockerfile_app
+      ignore_errors: yes
+
+    - name: build container image
+      command: docker build -t demo-dockerfile_app .
+      args:
+        chdir: /root/demo-dockerfile
+
+    
+    

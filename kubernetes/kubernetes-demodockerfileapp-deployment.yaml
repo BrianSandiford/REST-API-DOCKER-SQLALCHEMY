@@ -1,0 +1,23 @@
+---
+- name: Create pods using deployment 
+  hosts: kubernetesmanagement 
+
+  tasks: 
+  - name: create a namespace
+    command: kubectl create ns example-app 
+    ignore_errors: yes
+
+  - name: create a persistent volume claim
+    command: kubectl apply -n example-app -f persistentvolumeclaim.yaml
+    ignore_errors: yes
+
+  - name: create a persistent volume 
+    command: kubectl apply -n example-app -f persistentvolume.yaml
+    ignore_errors: yes
+
+  - name: create postges with pv
+    command: kubectl apply -n example-app -f postgres-with-pv.yaml
+
+  - name: create a deployment
+    command: kubectl apply -n example-app -f deployment.yaml
+

@@ -8,6 +8,7 @@ ENV POSTGRES_USER="" POSTGRES_PASSWORD="" POSTGRES_HOST=postgres POSTGRES_PORT=5
 
 COPY requirements.txt .
 COPY database.env .
+
 RUN export $(xargs < database.env)
 
 # Installing client libraries and any other package you need
@@ -22,12 +23,19 @@ RUN apk add --virtual .build-deps gcc python3-dev musl-dev postgresql-dev
 RUN pip install psycopg2
 
 RUN pip install -r requirements.txt
-
 # Delete build dependencies
 RUN apk del .build-deps
-
+COPY entrypoint.sh .
 COPY src/ .
 
 RUN export FLASK_APP=src/example/app.py
-CMD [ "python","start.py"]
+#COPY entrypoint.sh .
+RUN chmod u+x entrypoint.sh
+
+#CMD python -m ptvsd --host 0.0.0.0 --port 5678 --wait --multiprocess -m flask run -h 0.0.0 -p 5000
+#CMD python -m ptvsd --host 0.0.0.0 --port 5678 --wait --multiprocess -m start.py runserver -d --host 0.0.0.0
+##CMD python -m ptvsd --host 0.0.0.0 --port 5678 --wait app.py
+CMD ["/bin/sh", "entrypoint.sh"]
+#ENTRYPOINT ["entrypoint.sh"]
+#CMD [ "python","start.py"]
 
