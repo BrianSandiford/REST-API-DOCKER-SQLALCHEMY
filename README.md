@@ -15,10 +15,10 @@ You can send HTTP requests to your Flask server on 127.0.0.1:5000, you can eithe
 
 curl -XPOST -H "Content-type: application/json" -d \
 '{"name": "catty mcCatFace", "price": 5000, "breed": "bengal"}' \
-'127.0.0.1:5000/add'
+'publicip:5000/add'
 
 curl -X PATCH  -H "Content-type: application/json" -d \
  '{"name": "catty mcCatFace", "price": 9000, "breed": "bengal"}' \
-0 '127.0.0.1:5000/edit/1'
+0 'publicip:5000/edit/1'
 
 
