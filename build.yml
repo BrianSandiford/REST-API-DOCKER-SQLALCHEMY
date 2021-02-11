@@ -3,6 +3,7 @@
   gather_facts: no
   tasks:
     - name: create build directory
+      become: yes
       file:
         path: /root/demo-dockerfile
         state: directory
@@ -10,21 +11,24 @@
         group: root
         mode: '0755'
     - name: copy Dockerfile
+      become: yes
       copy:
-        src: .
+        src: /var/lib/jenkins/workspace/test
         dest: /root/demo-dockerfile/
         owner: root
         group: root
         mode: '0644'
 
     - name: remove docker image
+      become: yes
       command: docker rmi demo-dockerfile_app
       ignore_errors: yes
 
     - name: build container image
+      become: yes
       command: docker build -t demo-dockerfile_app .
       args:
-        chdir: /root/demo-dockerfile
+        chdir: /root/demo-dockerfile/test/
 
     
     
