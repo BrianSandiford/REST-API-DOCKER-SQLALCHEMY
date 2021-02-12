@@ -11,13 +11,7 @@ pipeline {
         } 
         stage('ansibleTest') {
             steps {
-                ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/host', playbook: '/var/lib/jenkins/workspace/test/build.yml'
-            }
-        }
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                sh '/var/lib/jenkins/workspace/test/build.sh'
+                ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/hosts', playbook: '/var/lib/jenkins/workspace/test/build.yml'
             }
         }
         stage('Test') {
