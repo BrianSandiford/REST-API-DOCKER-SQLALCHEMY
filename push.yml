@@ -1,7 +1,5 @@
 ---
 - hosts: build_host
-  vars:
-    PASS: inr2mtidne
   gather_facts: no
   tasks:
     - name: create tag to image
