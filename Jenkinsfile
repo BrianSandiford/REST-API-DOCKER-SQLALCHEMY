@@ -4,6 +4,11 @@ pipeline {
     githubPush()
     }
     stages {
+        stage('git') {
+            steps {
+                git 'https://github.com/BrianSandiford/REST-API-DOCKER-SQLALCHEMY'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
