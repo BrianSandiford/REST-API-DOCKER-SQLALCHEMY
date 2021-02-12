@@ -13,15 +13,15 @@ pipeline {
                 git 'https://github.com/BrianSandiford/REST-API-DOCKER-SQLALCHEMY'
             }
         } 
-        stage('ansibleTest') {
+        stage('Build') {
             steps {
                 ansiblePlaybook credentialsId: 'docker_prod_key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/hosts', playbook: '/var/lib/jenkins/workspace/test/build.yml'
             }
         }
 
-        stage('Test') {
+        stage('Push') {
             steps {
-                echo 'Testing..'
+                ansiblePlaybook colorized: true, credentialsId: 'docker_prod_key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test /hosts', playbook: '/var/lib/jenkins/workspace/test /push.yml'
             }
         }
         stage('Deploy') {

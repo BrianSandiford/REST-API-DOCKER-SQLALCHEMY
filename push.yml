@@ -4,6 +4,10 @@
     PASS: inr2mtidne
   gather_facts: no
   tasks:
+    - name: create tag to image
+      become: yes
+      command: docker tag demodockerfileapp briansandiford/demodockerfileapp
+
     - name: login to docker
       become: yes
       command: docker login -u briansandiford -p "{{ PASS }}"
@@ -11,3 +15,9 @@
     - name: push image to dockerhub
       become: yes
       command: docker push briansandiford/demodockerfileapp
+
+    - name: remove docker images from build server
+      become: yes
+      command: docker rmi demodockerfileapp briansandiford/demodockerfileapp
+      ignore_errors: yes
+     
