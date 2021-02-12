@@ -21,12 +21,12 @@
 
     - name: remove docker image
       become: yes
-      command: docker rmi demo-dockerfile_app
+      command: docker rmi demodockerfileapp
       ignore_errors: yes
 
     - name: build container image
       become: yes
-      command: docker build -t demo-dockerfile_app .
+      command: docker build -t demodockerfileapp .
       args:
         chdir: /root/demo-dockerfile/test/
 
