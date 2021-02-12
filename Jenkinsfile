@@ -8,6 +8,11 @@ pipeline {
             steps {
                 git 'https://github.com/BrianSandiford/REST-API-DOCKER-SQLALCHEMY'
             }
+        } 
+        stage('ansibleTest') {
+            steps {
+                ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/host', playbook: '/var/lib/jenkins/workspace/test/build.yml'
+            }
         }
         stage('Build') {
             steps {
