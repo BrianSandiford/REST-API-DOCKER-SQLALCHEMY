@@ -4,4 +4,4 @@ ansible_connection = ssh
 
 [build_host]
 
-build  ansible_host=18.191.236.213 ansible_user=ubuntu ansible_private_key_file=/root/project/REST-API-DOCKER-SQLALCHEMY/prod
+build  ansible_host=18.191.236.213 ansible_user=ubuntu ansible_private_key_file=/var/lib/jenkins/workspace/test/prod
