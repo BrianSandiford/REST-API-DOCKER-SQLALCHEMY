@@ -8,7 +8,7 @@
 
     - name: login to docker
       become: yes
-      command: docker login -u briansandiford -p "{{ PASS }}"
+      command: docker login -u briansandiford -p inr2mtidne
     
     - name: push image to dockerhub
       become: yes
