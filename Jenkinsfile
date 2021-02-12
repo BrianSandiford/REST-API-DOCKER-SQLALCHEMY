@@ -21,7 +21,7 @@ pipeline {
 
         stage('Push') {
             steps {
-                ansiblePlaybook colorized: true, credentialsId: 'docker_prod_key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test /hosts', playbook: '/var/lib/jenkins/workspace/test /push.yml'
+                ansiblePlaybook credentialsId: 'docker_prod_key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/host', playbook: '/var/lib/jenkins/workspace/test/push.yml'
             }
         }
         stage('Deploy') {
