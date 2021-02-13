@@ -8,7 +8,7 @@
 
     - name: login to docker
       become: yes
-      command: docker login -u briansandiford -p inr2mtidne
+      command: docker login -u briansandiford -p $PASS
     
     - name: push image to dockerhub
       become: yes
