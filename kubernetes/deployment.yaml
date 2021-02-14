@@ -22,6 +22,11 @@ spec:
     matchLabels:
       app: demodockerfileapp
   replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   template:
     metadata:
       labels:
@@ -29,7 +34,7 @@ spec:
     spec:
       containers:
       - name: demodockerfileapp
-        image: briansandiford/demodockerfileapp:latest
-        imagePullPolicy: "IfNotPresent"
+        image: briansandiford/demodockerfileapp
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 5000
