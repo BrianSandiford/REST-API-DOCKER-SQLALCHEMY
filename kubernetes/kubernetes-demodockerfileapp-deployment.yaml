@@ -1,26 +1,53 @@
 ---
 - name: Create pods using deployment 
-  hosts: kubernetesmanagement 
+  hosts: kubernetesmanagement
+  become: true
+  user: root 
 
-  tasks: 
+  tasks:
+  - name: create kubernetes directory
+    file:
+      path: /root/kubernetes-files
+      state: directory
+      owner: root
+      group: root
+      mode: '0755'
+  - name: copy kubernetes files
+    copy:
+      src: /root/project/REST-API-DOCKER-SQLALCHEMY/kubernetes
+      dest: /root/kubernetes-files
+      owner: root
+      group: root
+      mode: '0644'
+   
   - name: create a namespace
     command: kubectl create ns example-app 
     ignore_errors: yes
 
   - name: create a persistent volume claim
     command: kubectl apply -n example-app -f persistentvolumeclaim.yaml
+    args:
+        chdir: /root/kubernetes-files/kubernetes
     ignore_errors: yes
 
   - name: create a persistent volume 
     command: kubectl apply -n example-app -f persistentvolume.yaml
+    args:
+        chdir: /root/kubernetes-files/kubernetes
     ignore_errors: yes
 
   - name: create postges with pv
     command: kubectl apply -n example-app -f postgres-with-pv.yaml
+    args:
+        chdir: /root/kubernetes-files/kubernetes
 
   - name: create a deployment
     command: kubectl apply -n example-app -f deployment.yaml
+    args:
+        chdir: /root/kubernetes-files/kubernetes
 
   - name: update deployment with new pods if image updated in docker hub
-    command: kubectl rollout deployment.apps/demodockerfileapp
+    command: kubectl -n example-app  rollout restart deployment.apps/demodockerfileapp
+    args:
+        chdir: /root/kubernetes-files/kubernetes
 
