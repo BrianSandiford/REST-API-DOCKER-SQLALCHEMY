@@ -14,7 +14,7 @@
       mode: '0755'
   - name: copy kubernetes files
     copy:
-      src: /root/project/REST-API-DOCKER-SQLALCHEMY/kubernetes
+      src: /var/lib/jenkins/workspace/test/kubernetes/
       dest: /root/kubernetes-files
       owner: root
       group: root
