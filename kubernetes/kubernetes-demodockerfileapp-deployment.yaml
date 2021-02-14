@@ -21,3 +21,6 @@
   - name: create a deployment
     command: kubectl apply -n example-app -f deployment.yaml
 
+  - name: update deployment with new pods if image updated in docker hub
+    command: kubectl rollout deployment.apps/demodockerfileapp
+
