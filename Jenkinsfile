@@ -34,7 +34,7 @@ pipeline {
     }
         post {
          failure {
-            mail bcc: '', body: 'Please go to ${BUILD_URL} and verify the build', cc: '', from: 'rooms21@gmail.com', replyTo: '', subject: 'Job \'${JOB_NAME}\' (${BUILD_NUMBER}) has failed', to: 'rooms21@gmail.com'
+            mail bcc: '', body: '<b>Example</b><br>\n\<br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}', cc: '', charset: 'UTF-8' from: 'rooms21@gmail.com', mimeType: 'text/html', replyTo: '', subject: 'ERROR CI: Project name -> ${env.JOB_NAME}', to: 'rooms21@gmail.com'
        
           }
     }
