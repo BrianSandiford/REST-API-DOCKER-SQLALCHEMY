@@ -9,8 +9,7 @@ pipeline {
     }
     stages {
         stage('git') {
-            steps {
-                mail bcc: '', body: 'testing email from jenkins pipeline', cc: '', from: '', replyTo: '', subject: 'test', to: 'rooms21@gmail.com'  
+            steps {  
                 git 'https://github.com/BrianSandiford/REST-API-DOCKER-SQLALCHEMY'
             }
         } 
