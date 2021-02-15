@@ -29,13 +29,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 ansiblePlaybook credentialsId: 'k8s-managment-server-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/kubernetes/host', playbook: '/var/lib/jenkins/workspace/test/kubernetes/kubernetes-demodockerfileapp-deployment.yaml'
-                mail bcc: '', body: 'jenkins email test', cc: '', from: 'rooms21@gmail.com', replyTo: '', subject: 'Failure', to: 'rooms21@gmail.com'
             }
         }
     }
         post {
          failure {
-            mail bcc: '', body: 'jenkins email test', cc: '', from: 'rooms21@gmail.com', replyTo: '', subject: 'jenkins email', to: 'rooms21@gmail.com'
+            mail bcc: '', body: 'Please go to ${BUILD_URL} and verify the build', cc: '', from: 'rooms21@gmail.com', replyTo: '', subject: 'Failure Job '${JOB_NAME}' (${BUILD_NUMBER} failed', to: 'rooms21@gmail.com'
        
           }
     }
