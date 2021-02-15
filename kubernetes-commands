@@ -17,3 +17,5 @@ eksctl create cluster --name getting-started-eks \
 --node-type t2.small \
 --nodes 1 \
 --node-volume-size 200 
+
+eksctl delete cluster --name getting-started-eks
