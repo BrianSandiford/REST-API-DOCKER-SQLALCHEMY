@@ -29,6 +29,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 ansiblePlaybook credentialsId: 'k8s-managment-server-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/kubernetes/host', playbook: '/var/lib/jenkins/workspace/test/kubernetes/kubernetes-demodockerfileapp-deployment.yaml'
+                mail bcc: '', body: 'testing email from jenkins pipeline', cc: '', from: '', replyTo: '', subject: 'test', to: 'rooms21@gmail.com'
             }
         }
     }
