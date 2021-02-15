@@ -21,7 +21,7 @@ pipeline {
 
         stage('Push') {
             steps {
-                withDockerRegistry(credentialsId: 'dockerhub', url: 'https://registry.hub.docker.com') {
+                wwithDockerRegistry(credentialsId: 'dockerhub', url: 'https://registry.hub.docker.com') {
                 ansiblePlaybook credentialsId: 'docker_prod_key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/hosts', playbook: '/var/lib/jenkins/workspace/test/push.yml'
                 }
             }
