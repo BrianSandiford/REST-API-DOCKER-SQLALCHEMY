@@ -34,7 +34,7 @@ pipeline {
     }
         post {
          failure {
-            mail bcc: '', body: 'Please go to ${BUILD_URL} and verify the build', cc: '', from: 'rooms21@gmail.com', replyTo: '', subject: 'Failure Job '${JOB_NAME}' (${BUILD_NUMBER} failed', to: 'rooms21@gmail.com'
+            mail bcc: '', body: 'Please go to ${BUILD_URL} and verify the build', cc: '', from: 'rooms21@gmail.com', replyTo: '', subject: 'Job \'${JOB_NAME}\' (${BUILD_NUMBER}) has failed', to: 'rooms21@gmail.com'
        
           }
     }
