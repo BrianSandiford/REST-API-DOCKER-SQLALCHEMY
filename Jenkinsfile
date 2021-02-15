@@ -33,4 +33,10 @@ pipeline {
             }
         }
     }
+        post {
+         failure {
+            mail bcc: '', body: 'jenkins email test', cc: '', from: 'rooms21@gmail.com', replyTo: '', subject: 'jenkins email', to: 'rooms21@gmail.com'
+       
+          }
+    }
 }
