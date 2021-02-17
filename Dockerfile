@@ -1,7 +1,6 @@
 FROM python:3.6-alpine 
 
-#EXPOSE 8080
-EXPOSE 5000
+EXPOSE 8080
 WORKDIR /app
 
 
