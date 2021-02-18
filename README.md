@@ -78,10 +78,15 @@ To configure email notifications in jenkins please folllow guide [here](https://
 
 SMTP settings can be obtaining from Amazon SES [here](https://aws.amazon.com/ses/)
 
+## Webhooks
+Confgure webhook in your repository. Example [here](https://docs.github.com/en/developers/webhooks-and-events/creating-webhooks)
 
-Weebhooks
+
+## Finally
+A git push should trigger the build.
 
 
+You can send HTTP requests to your Flask server on publicip:5000, you can either use a REST client like Postman or Insomnia. You can also use cURL on the cli.
 
 curl -XPOST -H "Content-type: application/json" -d \
 '{"name": "catty mcCatFace", "price": 5000, "breed": "bengal"}' \
@@ -89,6 +94,6 @@ curl -XPOST -H "Content-type: application/json" -d \
 
 curl -X PATCH  -H "Content-type: application/json" -d \
  '{"name": "catty mcCatFace", "price": 9000, "breed": "bengal"}' \
-0 'publicip:5000/edit/1'
+0 'publicip:5000/edit/1
 
 
