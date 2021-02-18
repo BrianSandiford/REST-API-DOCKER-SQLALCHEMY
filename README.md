@@ -66,7 +66,7 @@ eksctl delete cluster --name getting-started-eks
 ```
 ## Define Jenkins Pipeline
 - Clone this repo and change to directory
-- Define Jenkins Pipeline in SCM.Instructions here [here](https://www.jenkins.io/doc/book/pipeline/getting-started/#through-the-classic-ui)
+- Define Jenkins Pipeline in SCM.Instructions [here](https://www.jenkins.io/doc/book/pipeline/getting-started/#through-the-classic-ui)
 - In the Jenkinsfile within the repo the **docker_prod_key** field needs to be defined as an SSH username and private key credential in Jenkins.
 	` ansiblePlaybook credentialsId: 'docker_prod_key'` This would be the private key needed to SSH into  Docker server created in the "Install ansible" instructions above.
 - In the Jenkinsfile within the repo the field **dockerhub** needs to be defined as as a Username with password credential in Jenkins `withDockerRegistry(credentialsId: 'dockerhub'` 
