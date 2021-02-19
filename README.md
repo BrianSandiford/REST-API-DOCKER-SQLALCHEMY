@@ -1,6 +1,8 @@
 # DevOps CI/CD Pipeline
 In this project we will build a CI/CD pipeline with Jenkins and Ansible to continuously integrate a REST API image and delivered it into the Docker Hub, then continuously deployed this application into the Kubernetes cluster ( Amazon Elastic Kubernetes Service (EKS))
 
+![alt text](Devopspipeline.jpeg)
+
 ##  Install Jenkins and Ansible on AWS EC2
 Instructions on installing Jenkins on AWS EC2 can be found [here](https://github.com/yankils/Simple-DevOps-Project/blob/master/Jenkins/Jenkins_Installation.MD#install-jenkins-on-aws-ec2). 
 
