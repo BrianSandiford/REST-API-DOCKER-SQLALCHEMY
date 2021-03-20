@@ -14,7 +14,7 @@ manager = Manager(app)
 migrate = Migrate(app, db)
 
 manager.add_command('db', MigrateCommand)
-
+cli = FlaskGroup(app)
 
 if __name__ == '__main__':
    manager.run()
