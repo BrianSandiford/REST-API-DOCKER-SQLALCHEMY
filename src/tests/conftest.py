@@ -1,8 +1,8 @@
+
 import pytest
 
-#from src import app, db
-from example.models import db
 from example.app import app
+from example.models import db
 
 @pytest.fixture(scope='module')
 def test_app():
