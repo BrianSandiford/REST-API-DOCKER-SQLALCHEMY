@@ -32,7 +32,7 @@ def add():
     breed = data['breed']
 
     database.add_instance(Cats, name=name, price=price, breed=breed)
-    return json.dumps("Added"), 200
+    return json.dumps("Added"), 201
 
 
 @app.route('/remove/<cat_id>', methods=['DELETE'])
