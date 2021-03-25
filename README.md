@@ -96,9 +96,9 @@ curl publicip:5000/home
 curl -XPOST -H "Content-type: application/json" -d \ '{"name": "catty mcCatFace", "price": 5000, "breed": "bengal"}' \
 'publicip:5000/add'
 
-curl -XPATCH -H "Content-type: application/json" -d'{"name": "catty mcCatFace", "price": 9000, "breed": "bengal"}' ''publicip:5000/edit/1'
+curl -XPATCH -H "Content-type: application/json" -d'{"name": "catty mcCatFace", "price": 9000, "breed": "bengal"}' ''publicip:5000/edit/<cat_id>'
 
-curl -X DELETE http://publicip:5000/remove/1
+curl -X DELETE http://publicip:5000/remove/<cat_id>
 
 docker exec -it rest-api-docker-sqlalchemy_app_1 python -m pytest tests/
 docker exec -it rest-api-docker-sqlalchemy_app_1 flake8 example
