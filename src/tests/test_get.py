@@ -7,8 +7,6 @@ def test_ping(test_app):
     data = json.loads(resp.data.decode())
     assert resp.status_code == 200
     for item in data:
+         assert  item["name"] == "catty mcCatFace"
          assert  item["price"] == 5000
-#        if item[0] == 'price':
-#            assert  item["price"] == 5000
-#    assert "catty mcCatFace" ==  data["name"]
-#    assert 5000 in data['price']
+         assert  item["breed"] == "bengal"
