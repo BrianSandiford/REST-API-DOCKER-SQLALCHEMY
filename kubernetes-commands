@@ -19,3 +19,10 @@ eksctl create cluster --name getting-started-eks \
 --node-volume-size 200 
 
 eksctl delete cluster --name getting-started-eks
+
+
+docker exec -it rest-api-docker-sqlalchemy_app_1 python -m pytest tests/
+docker exec -it rest-api-docker-sqlalchemy_app_1 flake8 example
+docker exec -it rest-api-docker-sqlalchemy_app_1 python -m pytest tests/ -p no:warnings --cov="example" --cov-report html
+
+
