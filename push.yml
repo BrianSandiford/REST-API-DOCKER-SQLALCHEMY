@@ -6,10 +6,6 @@
       become: yes
       command: docker tag demodockerfileapp briansandiford/demodockerfileapp
 
-#    - name: login to docker
-#      become: yes
-#      command: echo " Pass variable $PASS "
-#      command: docker login -u briansandiford -p $PASS
     
     - name: push image to dockerhub
       become: yes

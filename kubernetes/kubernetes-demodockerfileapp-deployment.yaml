@@ -27,27 +27,27 @@
   - name: create a persistent volume claim
     command: kubectl apply -n example-app -f persistentvolumeclaim.yaml
     args:
-        chdir: /root/kubernetes-files/kubernetes
+        chdir: /root/kubernetes-files/
     ignore_errors: yes
 
   - name: create a persistent volume 
     command: kubectl apply -n example-app -f persistentvolume.yaml
     args:
-        chdir: /root/kubernetes-files/kubernetes
+        chdir: /root/kubernetes-files/
     ignore_errors: yes
 
   - name: create postges with pv
     command: kubectl apply -n example-app -f postgres-with-pv.yaml
     args:
-        chdir: /root/kubernetes-files/kubernetes
+        chdir: /root/kubernetes-files/
 
   - name: create a deployment
     command: kubectl apply -n example-app -f deployment.yaml
     args:
-        chdir: /root/kubernetes-files/kubernetes
+        chdir: /root/kubernetes-files/
 
   - name: update deployment with new pods if image updated in docker hub
     command: kubectl -n example-app  rollout restart deployment.apps/demodockerfileapp
     args:
-        chdir: /root/kubernetes-files/kubernetes
+        chdir: /root/kubernetes-files/
 
