@@ -72,7 +72,7 @@ eksctl delete cluster --name getting-started-eks
 - In the Jenkinsfile within the repo the **docker_prod_key** field needs to be defined as an SSH username(root user) and private key credential in Jenkins.
 	` ansiblePlaybook credentialsId: 'docker_prod_key'` This would be the private key needed to SSH into  Docker server created in the "Install ansible" instructions above.
 - In the Jenkinsfile within the repo the field **dockerhub** needs to be defined as as a Username with password credential in Jenkins `withDockerRegistry(credentialsId: 'dockerhub'` 
-- In the Jenkinsfile within the repo the **k8s-managment-server-key** field needs to be defined as an SSH username and private key credential in Jenkins.
+- In the Jenkinsfile within the repo the **k8s-managment-server-key** field needs to be defined as an SSH username(ROOT user) and private key credential in Jenkins.
 	` ansiblePlaybook credentialsId: 'k8s-managment-server-key',` This would be the private key needed to SSH into the k8s-managment-server-created in the "Create Kubernetes (K8s) Cluster on AWS" instructions above.
 
 ## Configure mail
