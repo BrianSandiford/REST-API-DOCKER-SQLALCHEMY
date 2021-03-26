@@ -100,7 +100,3 @@ curl -XPATCH -H "Content-type: application/json" -d'{"name": "catty mcCatFace", 
 
 curl -X DELETE http://publicip:5000/remove/<cat_id>
 
-TO BE REMOVED
-docker exec -it rest-api-docker-sqlalchemy_app_1 python -m pytest tests/
-docker exec -it rest-api-docker-sqlalchemy_app_1 flake8 example
-docker exec -it rest-api-docker-sqlalchemy_app_1 python -m pytest tests/ -p no:warnings --cov="example" --cov-report html
