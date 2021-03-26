@@ -21,7 +21,7 @@ spec:
   selector:
     matchLabels:
       app: demodockerfileapp
-  replicas: 1
+  replicas: 4
   strategy:
     type: RollingUpdate
     rollingUpdate:
