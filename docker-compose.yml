@@ -20,11 +20,10 @@ services:
    ports:
      - 5000:5000
    volumes:
-    - app_volume:/app/
+    - $PWD/reports:/app
        
    depends_on:
      - database
     
 volumes:
   db_volume:
-  app_volume:
