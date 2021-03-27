@@ -11,6 +11,7 @@ services:
       - db_volume:/var/lib/postgresql
 
   app:
+   container_name: test_app_1
    build:
     context: .
     dockerfile: Dockerfile
