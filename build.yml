@@ -26,7 +26,8 @@
 
     - name: build container image
       become: yes
-      command: docker build -t demodockerfileapp .
+      command: docker-compose up -d --build
+     # command: docker build -t demodockerfileapp .
       args:
         chdir: /root/demo-dockerfile/test/
 
