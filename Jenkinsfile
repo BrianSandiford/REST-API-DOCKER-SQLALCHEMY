@@ -35,9 +35,6 @@ pipeline {
         }
     }
         post {
-         always {
-            junit 'build/reports/**/*.xml'
-         }
          failure {
             
             mail bcc: '', body: 'Please  verify the build', cc: '', from: 'rooms21@gmail.com', replyTo: '', subject: 'Build has failed', to: 'rooms21@gmail.com'
