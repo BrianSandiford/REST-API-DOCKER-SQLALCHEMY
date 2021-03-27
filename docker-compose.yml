@@ -21,7 +21,7 @@ services:
      - 5000:5000
      - 5678:5678
    volumes:
-     - ./src/:/app/
+     - ./reports/:/app/
        
    depends_on:
      - database
