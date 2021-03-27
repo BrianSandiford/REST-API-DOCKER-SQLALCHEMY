@@ -1,9 +1,11 @@
 ---
 - hosts: build_host
   gather_facts: no
+  become: true
+  user: root
+  
   tasks:
     - name: create build directory
-      become: yes
       file:
         path: /root/demo-dockerfile
         state: directory
@@ -12,8 +14,13 @@
         mode: '0755'
 
     -  name: copy docker compose file
-       become: yes
        command: git clone https://github.com/BrianSandiford/REST-API-DOCKER-SQLALCHEMY.git
+       ignore_errors: yes
+       args:
+        chdir: /root/demo-dockerfile/
+
+    -  name: pull docker compose file
+       command: git pull https://github.com/BrianSandiford/REST-API-DOCKER-SQLALCHEMY.git
        ignore_errors: yes
        args:
         chdir: /root/demo-dockerfile/
