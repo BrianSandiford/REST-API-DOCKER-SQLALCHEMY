@@ -21,10 +21,6 @@ services:
      - 5678:5678
    #volumes:
    #  - ./src/example/:/app/example
-   environment:
-#      - FLASK_APP=src/example/app.py
-      - FLASK_ENV=development
-      - APP_SETTINGS=src.config.DevelopmentConfig  
        
    depends_on:
      - database
