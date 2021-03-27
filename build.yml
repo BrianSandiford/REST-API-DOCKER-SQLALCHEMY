@@ -23,7 +23,7 @@
        command: git pull https://github.com/BrianSandiford/REST-API-DOCKER-SQLALCHEMY.git
        ignore_errors: yes
        args:
-        chdir: /root/demo-dockerfile/
+        chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/
 #      become: yes 
 #    - name: copy docker compose file
 #      become: yes
