@@ -13,7 +13,7 @@
 
     -  name: copy docker compose file
        become: yes
-       command:git clone https://github.com/BrianSandiford/REST-API-DOCKER-SQLALCHEMY.git
+       command: git clone https://github.com/BrianSandiford/REST-API-DOCKER-SQLALCHEMY.git
        ignore_errors: yes
        args:
         chdir: /root/demo-dockerfile/
