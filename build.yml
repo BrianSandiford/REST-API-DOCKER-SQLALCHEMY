@@ -10,7 +10,7 @@
         owner: root
         group: root
         mode: '0755'
-    - name: copy Dockerfile
+    - name: copy docker compose file
       become: yes
       copy:
         src: /var/lib/jenkins/workspace/test
