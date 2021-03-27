@@ -19,9 +19,8 @@ services:
    env_file: database.env
    ports:
      - 5000:5000
-     - 5678:5678
-   volumes:
-     - ./reports/:/app/
+#   volumes:
+#     - ./reports/:/app/
        
    depends_on:
      - database
