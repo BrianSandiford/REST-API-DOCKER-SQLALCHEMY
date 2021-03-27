@@ -6,5 +6,5 @@
 
   tasks:
     - name: rest api test
-      command: docker exec test_app_1 python -m pytest --junitxml=path  tests/
+      command: docker exec test_app_1 python -m pytest --junitxml=path.xml  tests/
 
