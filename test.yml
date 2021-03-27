@@ -1,0 +1,10 @@
+---
+- hosts: build_host
+  gather_facts: no
+  become: true
+  user: root
+
+  tasks:
+    - name: rest api test
+      command: docker exec test_app_1 python -m pytest tests/
+
