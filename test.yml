@@ -19,8 +19,8 @@
         dest: /var/lib/jenkins/workspace/test
         remote_src: yes
 
-      args:
-        chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/
+#      args:
+#        chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/
 #        owner: root
 #        group: root
 #        mode: '0644'
