@@ -14,7 +14,7 @@
         chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/
 
     - name: copy path.xml from local to workspace
-       copy:
+      copy:
         src: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/
         dest: /var/lib/jenkins/workspace/test
         owner: root
