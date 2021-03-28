@@ -8,16 +8,16 @@
     - name: rest api test
       command: docker exec test_app_1 python -m pytest --junitxml=path.xml tests/ -p no:warnings
 
-    -  name: copy path.xml to local directory
-       command: docker cp test_app_1:/app/path.xml ./reports
-       args:
-        chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/
+#    -  name: copy path.xml to local directory
+#       command: docker cp test_app_1:/app/path.xml ./reports
+#       args:
+#        chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/
 
-    - name: copy path.xml from local to workspace
-      copy:
-        src: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/
-        dest: /var/lib/jenkins/workspace/test
-        remote_src: yes
+#    - name: copy path.xml from local to workspace
+#      copy:
+#        src: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/
+#        dest: /var/lib/jenkins/workspace/test
+#        remote_src: yes
 
 #      args:
 #        chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/
