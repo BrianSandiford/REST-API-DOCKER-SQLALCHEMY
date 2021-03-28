@@ -24,6 +24,10 @@
        ignore_errors: yes
        args:
         chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/
+
+    -  name: pull docker compose file
+       command: docker cp test_app_1:/app/path.xml  /var/lib/jenkins/workspace/test/reports
+     
 #      become: yes 
 #    - name: copy docker compose file
 #      become: yes
