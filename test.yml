@@ -15,10 +15,10 @@
 
     - name: copy path.xml from local to workspace
       copy:
-        src: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports
+        src: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/
         dest: /var/lib/jenkins/workspace/test
       args:
-        chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/
+        chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/
 #        owner: root
 #        group: root
 #        mode: '0644'
