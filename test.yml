@@ -17,8 +17,8 @@
       copy:
         src: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports
         dest: /var/lib/jenkins/workspace/test
-        owner: root
-        group: root
-        mode: '0644'
+#        owner: root
+#        group: root
+#        mode: '0644'
    
 
