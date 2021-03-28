@@ -17,6 +17,8 @@
       copy:
         src: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports
         dest: /var/lib/jenkins/workspace/test
+      args:
+        chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/
 #        owner: root
 #        group: root
 #        mode: '0644'
