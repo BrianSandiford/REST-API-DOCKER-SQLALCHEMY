@@ -25,20 +25,6 @@
        args:
         chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/
 
-    -  name: copy path.xml to local directory
-       command: docker cp test_app_1:/app/path.xml ./reports
-       args:
-        chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/
-#      become: yes 
-#    - name: copy docker compose file
-#      become: yes
-#      copy:
-#        src: /var/lib/jenkins/workspace/test
-#        dest: /root/demo-dockerfile/
-#        owner: root
-#        group: root
-#        mode: '0644'
-
     - name: remove docker image
       become: yes
       command: docker rmi demodockerfileapp
