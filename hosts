@@ -4,5 +4,5 @@ ansible_connection = ssh
 
 [build_host]
 
-build  ansible_host=3.21.97.213
+build  ansible_host=18.224.64.90
 #build  ansible_host=18.191.236.213 ansible_user=ubuntu ansible_private_key_file=/root/project/REST-API-DOCKER-SQLALCHEMY/prod
