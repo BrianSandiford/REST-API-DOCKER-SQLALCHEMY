@@ -18,6 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 ansiblePlaybook credentialsId: 'docker_prod_key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/hosts', playbook: '/var/lib/jenkins/workspace/test/test.yml'
+                sh 'scp root@13.59.79.255:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test/'
             }
         }
 
