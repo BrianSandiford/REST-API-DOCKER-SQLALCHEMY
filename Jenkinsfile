@@ -31,7 +31,7 @@ pipeline {
             steps {  
                   withCredentials([sshUserPrivateKey(credentialsId: 'docker_prod_key', keyFileVariable: 'docker_key', passphraseVariable: '', usernameVariable: 'root')]) {
                     sh 'chmod 777  /var/lib/jenkins/workspace/test/'
-                    sh 'ssh  -tt -i /var/lib/jenkins/workspace/test/ssh1723900049214635622.key root@3.21.97.213'
+                  //  sh 'ssh  -tt -i /var/lib/jenkins/workspace/test/ssh1723900049214635622.key root@3.21.97.213'
                     sh 'scp root@3.21.97.213:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test/'
                 }
             }
