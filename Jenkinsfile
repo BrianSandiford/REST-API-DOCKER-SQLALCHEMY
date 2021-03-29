@@ -20,7 +20,7 @@ pipeline {
                 ansiblePlaybook credentialsId: 'docker_prod_key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/hosts', playbook: '/var/lib/jenkins/workspace/test/test.yml'
                 withCredentials([sshUserPrivateKey(credentialsId: 'docker_prod_key', keyFileVariable: 'docker_key', passphraseVariable: '', usernameVariable: 'root')]) {
                     sh 'chmod 777  /var/lib/jenkins/workspace/test/'
-                    ssh root@3.21.97.213
+                    sh 'ssh root@3.21.97.213'
                    // sh 'scp root@3.21.97.213:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test/'
                 }
 
