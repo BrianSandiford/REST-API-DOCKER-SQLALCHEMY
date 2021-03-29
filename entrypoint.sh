@@ -11,4 +11,3 @@
 
 python start.py runserver -d --host 0.0.0.0
 
-#python start.py run -h 0.0.0.0
