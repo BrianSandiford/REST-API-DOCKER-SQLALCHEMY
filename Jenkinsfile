@@ -57,7 +57,7 @@ pipeline {
        
           }
          always {
-            junit '**/var/lib/jenkins/workspace/test/*.xml'
+            junit allowEmptyResults: true, testResults: '**/var/lib/jenkins/workspace/test/*.xml'
           }
 
     }
