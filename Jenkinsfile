@@ -57,7 +57,7 @@ pipeline {
        
           }
          always {
-            junit '/var/lib/jenkins/workspace/test/*.xml'
+            junit '**/var/lib/jenkins/workspace/test/*.xml'
           }
 
     }
