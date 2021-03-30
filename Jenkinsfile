@@ -32,7 +32,7 @@ pipeline {
                     sh 'chmod 777  /var/lib/jenkins/workspace/test/'
                     sh 'ssh -tt  root@18.224.64.90'
                 //   sh 'scp root@18.224.64.90:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test/'
-               // }
+                }
             }
         }
 
