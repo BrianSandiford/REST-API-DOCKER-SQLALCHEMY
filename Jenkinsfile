@@ -54,7 +54,8 @@ pipeline {
        
           }
          always {
-            junit allowEmptyResults: true, testResults: '**/var/lib/jenkins/workspace/test/*.xml'
+            //junit allowEmptyResults: true, testResults: '**/var/lib/jenkins/workspace/test/*.xml'
+            junit allowEmptyResults: true, testResults: '**/*.xml'
           }
 
     }
