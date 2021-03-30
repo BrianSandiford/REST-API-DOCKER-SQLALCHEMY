@@ -53,9 +53,12 @@ pipeline {
     }
         post {
          failure {
-            junit '/var/lib/jenkins/workspace/test/path.xml'
             mail bcc: '', body: 'Please  verify the build', cc: '', from: 'rooms21@gmail.com', replyTo: '', subject: 'Build has failed', to: 'rooms21@gmail.com'
        
           }
+         always {
+            junit '/var/lib/jenkins/workspace/test/*.xml'
+          }
+
     }
 }
