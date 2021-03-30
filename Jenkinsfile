@@ -29,10 +29,11 @@ pipeline {
          stage('publish') {
             steps {  
                   withCredentials([sshUserPrivateKey(credentialsId: 'docker_prod_key', keyFileVariable: 'docker_key_variable', passphraseVariable: '', usernameVariable: '')]) {
-                    sh 'chmod 777  /var/lib/jenkins/workspace/test/'
-                    sh 'sudo chown root:root  /var/lib/jenkins/workspace/test/'
+                 //   sh 'chmod 777  /var/lib/jenkins/workspace/test/'
+                 //   sh 'sudo chown root:root  /var/lib/jenkins/workspace/test/'
                 //    sh 'ssh -tt -i $docker_key_variable  root@18.224.64.90'
-                   sh 'scp -i $docker_key_variable root@18.224.64.90:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test'
+                     sh 'whoami'
+                //   sh 'scp -i $docker_key_variable root@18.224.64.90:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test'
                 }
             }
         }
