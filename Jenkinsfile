@@ -33,7 +33,6 @@ pipeline {
                     sh 'sudo chown root:root  /var/lib/jenkins/workspace/test/'
                 //    sh 'ssh -tt -i $docker_key_variable  root@18.224.64.90'
                    sh 'scp -i $docker_key_variable root@18.224.64.90:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test'
-                   junit '/var/lib/jenkins/workspace/test/path.xml'
                 }
             }
         }
@@ -53,7 +52,7 @@ pipeline {
     }
         post {
          failure {
-            
+            junit '/var/lib/jenkins/workspace/test/path.xml'
             mail bcc: '', body: 'Please  verify the build', cc: '', from: 'rooms21@gmail.com', replyTo: '', subject: 'Build has failed', to: 'rooms21@gmail.com'
        
           }
