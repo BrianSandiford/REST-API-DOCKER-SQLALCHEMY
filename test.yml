@@ -6,7 +6,7 @@
 
   tasks:
     - name: rest api test
-      command: docker exec test_app_1 python -m pytest --junitxml=path.xml tests/ -p no:warnings --cov="example"
+      command: docker exec test_app_1 python -m pytest --junitxml=path.xml tests/ -p no:warnings --cov="example"  --cov-report html
 
     -  name: copy path.xml to local directory
        command: docker cp test_app_1:/app/path.xml ./reports
