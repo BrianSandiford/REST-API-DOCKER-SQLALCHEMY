@@ -8,5 +8,5 @@ def test_ping(test_app):
     assert resp.status_code == 200
     for item in data:
          assert  item["name"] == "catty mcCatFace"
-         assert  item["price"] == 5000
+         assert  item["price"] == 2000
          assert  item["breed"] == "bengal"
