@@ -18,10 +18,6 @@ pipeline {
         stage('Test') {
             steps {
                 ansiblePlaybook credentialsId: 'docker_prod_key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/hosts', playbook: '/var/lib/jenkins/workspace/test/test.yml'
-               // withCredentials([sshUserPrivateKey(credentialsId: 'docker_prod_key', keyFileVariable: 'docker_key', passphraseVariable: '', usernameVariable: 'root')]) {
-               //     sh 'chmod 777  /var/lib/jenkins/workspace/test/'
-                   // sh 'scp root@3.21.97.213:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test/'
-              //  }
 
             }
         }
@@ -30,7 +26,7 @@ pipeline {
             steps {  
                   withCredentials([sshUserPrivateKey(credentialsId: 'docker_prod_key', keyFileVariable: 'docker_key_variable', passphraseVariable: '', usernameVariable: '')]) {
                     sh 'chmod 777  /var/lib/jenkins/workspace/test/'
-                    sh 'scp -r -i $docker_key_variable root@3.15.221.224:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test'
+                    sh 'scp -r -i $docker_key_variable root@18.221.58.37:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test'
                 }
             }
         }
@@ -54,7 +50,6 @@ pipeline {
        
           }
          always {
-            //junit allowEmptyResults: true, testResults: '**/var/lib/jenkins/workspace/test/*.xml'
             junit allowEmptyResults: true, testResults: '**/*.xml'
           }
 
