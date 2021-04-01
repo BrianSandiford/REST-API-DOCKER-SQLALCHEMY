@@ -14,7 +14,7 @@
         chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/
    
     
-    -  name: copy /htmlcov  to local directory
+    -  name: copy /htmlcov dir  to local directory
        command: docker cp test_app_1:/app/htmlcov ./htmlcov
        args:
         chdir: /root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/
