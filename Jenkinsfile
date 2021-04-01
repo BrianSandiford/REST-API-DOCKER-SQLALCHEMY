@@ -52,6 +52,7 @@ pipeline {
           }
          always {
             junit allowEmptyResults: true, testResults: '**/*.xml'
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/test/htmlcov/htmlcov', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
           }
 
     }
