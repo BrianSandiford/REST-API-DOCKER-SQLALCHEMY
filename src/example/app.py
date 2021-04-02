@@ -6,7 +6,7 @@ from . import create_app, database
 from .models import Cats
 
 app = create_app()
-
+'''
 schema = {
     'type': 'object',
     'properties': {
@@ -16,7 +16,7 @@ schema = {
     },
     'required': ['email', 'price', 'breed']
 }
-
+'''
 
 
 
@@ -37,7 +37,7 @@ def fetch():
 
 
 @app.route('/add', methods=['POST'])
-@expects_json(schema)
+#@expects_json(schema)
 def add():
     data = request.get_json()
     name = data['name']
