@@ -3,7 +3,7 @@ import json
 from flask import request
 from flask_expects_json import expects_json
 from . import create_app, database
-from .models import Cats
+from .models import Cats, db
 
 app = create_app()
 
@@ -50,6 +50,10 @@ def add():
 
 @app.route('/remove/<cat_id>', methods=['DELETE'])
 def remove(cat_id):
+    cat = model.query.filter_by(id=cat_id).first()
+
+    if not cat:
+       return json.dumps("Cat does not exist"), 404
     database.delete_instance(Cats, id=cat_id)
     return json.dumps("Deleted"), 200
 
