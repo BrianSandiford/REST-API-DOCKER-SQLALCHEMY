@@ -22,5 +22,5 @@ def test_add_cat_invalid_json(test_app, test_database):
         data=json.dumps({}),
         content_type='application/json',
     )
-    data = json.loads(resp.data.decode())
+   # data = json.loads(resp.data.decode())
     assert resp.status_code == 400
