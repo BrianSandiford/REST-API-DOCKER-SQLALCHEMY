@@ -1,7 +1,7 @@
 import json
 
 
-def test_get(test_app):
+def test_get_cat(test_app):
     client = test_app.test_client()
     resp0 = client.post(
         '/add',
@@ -18,5 +18,5 @@ def test_get(test_app):
    # assert data[0] == "bobby brown"
     for item in data:
          assert  item["name"] == "catty mcCatFace"
-         assert  item["price"] == 5000
+         assert  item["price"] == 2000
          assert  item["breed"] == "bengal"
