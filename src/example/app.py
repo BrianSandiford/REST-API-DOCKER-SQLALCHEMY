@@ -1,11 +1,23 @@
 import json
 
 from flask import request
-
+from flask_expects_json import expects_json
 from . import create_app, database
 from .models import Cats
 
 app = create_app()
+
+schema = {
+    'type': 'object',
+    'properties': {
+        'name': {'type': 'string'},
+        'price': {'type': 'number'},
+        'breed': {'type': 'string'}
+    },
+    'required': ['email', 'price', 'breed']
+}
+
+
 
 
 @app.route('/', methods=['GET'])
@@ -25,6 +37,7 @@ def fetch():
 
 
 @app.route('/add', methods=['POST'])
+@expects_json(schema)
 def add():
     data = request.get_json()
     name = data['name']
