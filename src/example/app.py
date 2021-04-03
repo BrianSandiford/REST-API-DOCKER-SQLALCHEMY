@@ -49,7 +49,7 @@ def add():
 
 
 @app.route('/remove/<cat_id>', methods=['DELETE'])
-def remove(id):
+def remove(model,id):
     cat = model.query.filter_by(id=id).first()
 
     if not cat:
