@@ -1,5 +1,3 @@
-TEST
-TO BE REMOVED
 docker exec -it rest-api-docker-sqlalchemy_app_1 python -m pytest tests/
 docker exec -it rest-api-docker-sqlalchemy_app_1 flake8 example
 docker exec -it rest-api-docker-sqlalchemy_app_1 python -m pytest tests/ -p no:warnings --cov="example" --cov-report html
