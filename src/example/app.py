@@ -55,7 +55,7 @@ def remove(cat_id):
   #  if cat == 1:
   #    return json.dumps("Cat does not exist"), 404
   #  else:
-     database.delete_instance(Cats, id=cat_id>)
+     database.delete_instance(Cats, id=cat_id)
      return json.dumps("Deleted"), 200
 
 
