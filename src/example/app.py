@@ -48,7 +48,7 @@ def add():
     return json.dumps("Added"), 201
 
 
-@app.route('/remove/<cat_id>', methods=['DELETE'])
+@app.route('/remove/<id>', methods=['DELETE'])
 def remove(model,id):
    # cat = model.query.filter_by(id=id).all()
     cat = False
