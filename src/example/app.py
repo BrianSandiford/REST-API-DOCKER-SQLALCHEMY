@@ -54,8 +54,9 @@ def remove(cat_id):
 
     if not cat:
        return json.dumps("Cat does not exist"), 404
-    database.delete_instance(Cats, id=cat_id)
-    return json.dumps("Deleted"), 200
+    else:
+     database.delete_instance(Cats, id=cat_id)
+     return json.dumps("Deleted"), 200
 
 
 @app.route('/edit/<cat_id>', methods=['PATCH'])
