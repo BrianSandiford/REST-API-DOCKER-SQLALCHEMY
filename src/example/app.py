@@ -53,7 +53,8 @@ def remove(model,id):
     cat = model.query.filter_by(id=id).first()
 
     if not cat:
-       return json.dumps("Cat does not exist"), 404
+      pass
+      # return json.dumps("Cat does not exist"), 404
     else:
      database.delete_instance(Cats, id=id)
      return json.dumps("Deleted"), 200
