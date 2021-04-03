@@ -5,6 +5,9 @@ def get_all(model):
     data = model.query.all()
     return data
 
+def get_instance(model, id):
+    data = model.query.filter_by(id=id).first()
+    return data
 
 def add_instance(model, **kwargs):
     instance = model(**kwargs)

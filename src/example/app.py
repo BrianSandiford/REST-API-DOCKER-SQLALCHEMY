@@ -50,9 +50,8 @@ def add():
 
 @app.route('/remove/<cat_id>', methods=['DELETE'])
 def remove(cat_id):
-  #  cat = model.query.filter_by(id=id).all()
-    cat =  1
-    if cat == 1:
+    cat = database.get_instance(Cats, id=cat_id)
+    if  not cat:
       return json.dumps("Cat does not exist"), 404
     else:
      database.delete_instance(Cats, id=cat_id)
