@@ -37,7 +37,7 @@ def test_remove_cats(test_app, test_database, add_cat):
     assert len(data) == 0
 
 
-def test_remove_invalid_cat(test_app, test_database)
+def test_remove_invalid_cat(test_app, test_database):
     client = test_app.test_client()
     resp = client.delete("/remove/1024")]
     data = json.loads(resp.data.decode())
