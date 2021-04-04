@@ -23,6 +23,6 @@ def add_cat():
     def _add_cat(name, price, breed):
         cat = Cats(name=name, price=price, breed=breed)
         db.session.add(cat)
-        ad.session.commit()
+        db.session.commit()
         return cat
     return _add_cat  
