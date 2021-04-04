@@ -56,6 +56,6 @@ def test_edit_cats(test_app, test_database, add_cat):
              }),
              content_type='application/json',
    )
-   data = json.loads(resp.data.decode())
+    data = json.loads(resp.data.decode())
     assert resp.status_code == 200
     assert "Edited" in data   
