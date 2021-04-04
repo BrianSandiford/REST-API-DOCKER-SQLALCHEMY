@@ -25,4 +25,4 @@ def add_cat():
         db.session.add(cat)
         ad.session.commit()
         return cat
-    return _add_user  
+    return _add_cat  
