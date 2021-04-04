@@ -2,7 +2,7 @@
 import pytest
 
 from example.app import app
-#from example.models import db
+from example.models import db
 from example.models import Cats 
 
 @pytest.fixture(scope='module')

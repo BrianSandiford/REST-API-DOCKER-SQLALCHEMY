@@ -1,5 +1,6 @@
 import json
-
+#from src import db
+from example.models import Cats
 
 def test_get_cat(test_app):
     client = test_app.test_client()
