@@ -17,6 +17,15 @@ schema = {
     'required': ['name', 'price', 'breed']
 }
 
+schema1 = {
+    'type': 'object',
+    'properties': {
+        'name': {'type': 'string'},
+        'price': {'type': 'number'},
+        'breed': {'type': 'string'}
+    },
+    'required': [ 'price']
+}
 
 
 
@@ -59,6 +68,7 @@ def remove(cat_id):
 
 
 @app.route('/edit/<cat_id>', methods=['PATCH'])
+@expects_json(schema1)
 def edit(cat_id):
     data = request.get_json()
     new_price = data['price']
