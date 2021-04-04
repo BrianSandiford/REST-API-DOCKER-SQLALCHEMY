@@ -1,7 +1,7 @@
 import json
 #from src import db
 from example.models import Cats
-
+'''
 def test_get_cat(test_app):
     client = test_app.test_client()
     resp0 = client.post(
@@ -20,8 +20,9 @@ def test_get_cat(test_app):
          assert  item["name"] == "catty mcCatFace"
          assert  item["price"] == 5000
          assert  item["breed"] == "bengal"
+'''
 
-def test_all_users(test_app, test_database, add_cat):
+def test_all_cats(test_app, test_database, add_cat):
     add_cat("catty mcCatFace", 5000, "bengal")
     client = test_app.test_client()
     resp = client.get('/')
