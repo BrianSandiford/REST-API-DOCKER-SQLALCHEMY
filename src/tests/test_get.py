@@ -26,7 +26,7 @@ def test_remove_cats(test_app, test_database, add_cat):
     assert resp_one.status_code == 200
     assert len(data) == 1
 
-    resp_two = client.delete(f"/remove/{cat.id}")
+    resp_two = client.remove(f"/remove/{cat.id}")
     data = json.loads(resp_two.data.decode())
     assert resp_two.status_code == 200
     assert "Deleted" in data  
@@ -39,7 +39,13 @@ def test_remove_cats(test_app, test_database, add_cat):
 
 def test_remove_invalid_cat(test_app, test_database):
     client = test_app.test_client()
-    resp = client.delete("/remove/1024")
+    resp = client.remove("/remove/1024")
     data = json.loads(resp.data.decode())
     assert resp.status_code == 404      
     assert "Cat does not exist"  in data
+'''
+def test_edit_cats(test_app, test_database, add_cat):
+    cat =  add_cat("catty mcCatFace", 5000, "bengal")
+    client = test_app.test_client()
+    resp_one = client.edit
+'''
