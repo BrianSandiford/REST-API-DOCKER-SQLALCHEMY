@@ -1,7 +1,7 @@
 import json
 from example.models import Cats
 
-def test_all_cats(test_app, test_database, add_cat):
+def test_get_cats(test_app, test_database, add_cat):
     test_database.session.query(Cats).delete() #remove all rows in table before test
     add_cat("catty mcCatFace", 5000, "bengal")
     add_cat("Fluff", 4000, "Siamese")
@@ -16,4 +16,24 @@ def test_all_cats(test_app, test_database, add_cat):
     assert  "Fluff" in  data[1]["name"]
     assert  4000 == data[1]["price"]
     assert "Siamese" in  data[1]["breed"]
+
+def test_remove_cats(test_app, test_database, add_cat):
+    test_database.session.query(Cats).delete()
+    cat =  add_cat("catty mcCatFace", 5000, "bengal")
+    client = test_app.test_client()
+    resp_one = client.get('/')
+    data = json.loads(resp.data.decode())
+    assert resp.status_code == 200
+    assert len(data) == 1
+
+    resp_two = client.delete(f"/remove/{cat.id}")
+    data = json.loads(resp_two.data.decode())
+    assert resp.status_code == 200
+    assert "Deleted" in data  
+ 
+    resp_three = client.get('/')
+    data = json.loads(resp_three.data.decode())
+    assert resp.status_code == 200
+    assert len(data) == 0
+
 
