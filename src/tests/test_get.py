@@ -59,3 +59,13 @@ def test_edit_cats(test_app, test_database, add_cat):
     data = json.loads(resp_one.data.decode())
     assert resp_one.status_code == 200
     assert "Edited" in data   
+
+def test_edit_invalid_cats(test_app, test_database, add_cat):
+    client = test_app.test_client()
+    resp = client.patch(
+             "/edit/1",
+             data=json.dumps({ }),
+             content_type='application/json',
+   )
+    data = json.loads(resp_one.data.decode())
+    assert resp_one.status_code == 400
