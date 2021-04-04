@@ -22,18 +22,18 @@ def test_remove_cats(test_app, test_database, add_cat):
     cat =  add_cat("catty mcCatFace", 5000, "bengal")
     client = test_app.test_client()
     resp_one = client.get('/')
-    data = json.loads(resp.data.decode())
-    assert resp.status_code == 200
+    data = json.loads(resp_one.data.decode())
+    assert resp_one.status_code == 200
     assert len(data) == 1
 
     resp_two = client.delete(f"/remove/{cat.id}")
     data = json.loads(resp_two.data.decode())
-    assert resp.status_code == 200
+    assert resp_two.status_code == 200
     assert "Deleted" in data  
  
     resp_three = client.get('/')
     data = json.loads(resp_three.data.decode())
-    assert resp.status_code == 200
+    assert resp_three.status_code == 200
     assert len(data) == 0
 
 
