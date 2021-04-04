@@ -58,4 +58,5 @@ def test_edit_cats(test_app, test_database, add_cat):
    )
     data = json.loads(resp_one.data.decode())
     assert resp_one.status_code == 200
-    assert "Edited" in data   
+   # assert "Edited" in data   
+    assert "Bob" in data
