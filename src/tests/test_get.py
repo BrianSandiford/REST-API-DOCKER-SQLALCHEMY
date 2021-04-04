@@ -2,6 +2,7 @@ import json
 from example.models import Cats
 
 def test_all_cats(test_app, test_database, add_cat):
+    test_database.session.query(Cats).delete() #remove all rows in table before test
     add_cat("catty mcCatFace", 5000, "bengal")
     add_cat("Fluff", 4000, "Siamese")
     client = test_app.test_client()

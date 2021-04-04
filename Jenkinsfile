@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-         stage('publish') {
+         stage('Publish') {
             steps {  
                   withCredentials([sshUserPrivateKey(credentialsId: 'docker_prod_key', keyFileVariable: 'docker_key_variable', passphraseVariable: '', usernameVariable: '')]) {
                     sh 'chmod 777  /var/lib/jenkins/workspace/test/'
