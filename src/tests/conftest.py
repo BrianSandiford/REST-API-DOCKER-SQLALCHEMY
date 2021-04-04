@@ -2,8 +2,8 @@
 import pytest
 
 from example.app import app
-from example.models import db
-from example.models import Cats 
+from example.models import db, Cats
+#from example.models import Cats 
 
 @pytest.fixture(scope='module')
 def test_app():
