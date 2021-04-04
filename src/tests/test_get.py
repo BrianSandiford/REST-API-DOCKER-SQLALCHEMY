@@ -41,11 +41,21 @@ def test_remove_invalid_cat(test_app, test_database):
     client = test_app.test_client()
     resp = client.delete("/remove/1024")
     data = json.loads(resp.data.decode())
-    assert resp.status_code == 404      
+    assert resp.status_code == 404
     assert "Cat does not exist"  in data
-'''
+
 def test_edit_cats(test_app, test_database, add_cat):
     cat =  add_cat("catty mcCatFace", 5000, "bengal")
     client = test_app.test_client()
-    resp_one = client.edit
-'''
+    resp_one = client.patch(
+             f"/edit/{cat.id}",
+             data=json.dumps({
+                  'name': 'catty mcCatFace',
+                  'price': 1234567,
+                  'breed': 'bengal'
+             }),
+             content_type='application/json',
+   )
+   data = json.loads(resp.data.decode())
+    assert resp.status_code == 200
+    assert "Edited" in data   
