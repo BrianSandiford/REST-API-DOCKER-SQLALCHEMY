@@ -37,3 +37,9 @@ def test_remove_cats(test_app, test_database, add_cat):
     assert len(data) == 0
 
 
+def test_remove_invalid_cat(test_app, test_database)
+    client = test_app.test_client()
+    resp = client.delete("/remove/1024")]
+    data = json.loads(resp.data.decode())
+    assert resp.status_code == 404      
+    assert "Cat does not exist"  in data
