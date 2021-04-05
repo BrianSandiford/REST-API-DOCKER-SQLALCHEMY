@@ -72,5 +72,9 @@ def remove(cat_id):
 def edit(cat_id):
     data = request.get_json()
     new_price = data['price']
-    database.edit_instance(Cats, id=cat_id, price=new_price)
-    return json.dumps("Edited"), 200
+    cat = database.get_instance(Cats, id=cat_id)
+    if  not cat:
+      return json.dumps("Cat does not exist"), 404
+    else:
+     database.edit_instance(Cats, id=cat_id, price=new_price)
+     return json.dumps("Edited"), 200
