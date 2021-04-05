@@ -67,8 +67,8 @@ def test_edit_invalid_cats(test_app, test_database, add_cat):
              data=json.dumps({ }),
              content_type='application/json',
    )
-    data = json.loads(resp_one.data.decode())
-    assert resp_one.status_code == 400
+    data = json.loads(resp.data.decode())
+    assert resp.status_code == 400
 
 def test_edit_cats_does_not_exist(test_app, test_database, add_cat):
     client = test_app.test_client()
