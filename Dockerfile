@@ -29,7 +29,6 @@ COPY entrypoint.sh .
 COPY src/ .
 
 RUN export FLASK_APP=src/example/app.py
-#COPY entrypoint.sh .
 RUN chmod u+x entrypoint.sh
 
 CMD ["/bin/sh", "entrypoint.sh"]
