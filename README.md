@@ -91,7 +91,7 @@ A git push should trigger the build.
 You can send HTTP requests to your Flask server on publicip:5000, you can either use a REST client like Postman or Insomnia. You can also use cURL on the cli.
 
  
-curl publicip:5000/home
+curl publicip:5000
 
 curl -XPOST -H "Content-type: application/json" -d \ '{"name": "catty mcCatFace", "price": 5000, "breed": "bengal"}' \
 'publicip:5000/add'
