@@ -101,6 +101,6 @@ curl -XPATCH -H "Content-type: application/json" -d'{"name": "catty mcCatFace", 
 curl -X DELETE http://publicip:5000/remove/<cat_id>
 
 
-## Openshift deployment
+
 
 
