@@ -1,3 +1,4 @@
+docker exec -it postgres psql -h postgres -p 5432 -U admin postgresdb
 docker exec -it rest-api-docker-sqlalchemy_app_1 python -m pytest tests/
 docker exec -it rest-api-docker-sqlalchemy_app_1 flake8 example
 docker exec -it rest-api-docker-sqlalchemy_app_1 python -m pytest tests/ -p no:warnings --cov="example" --cov-report html
