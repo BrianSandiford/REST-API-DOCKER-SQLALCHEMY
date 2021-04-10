@@ -5,11 +5,6 @@ pipeline {
     githubPush()
     }
     stages {
-      //  stage('git') {
-      //      steps {  
-      //          git 'https://github.com/BrianSandiford/REST-API-DOCKER-SQLALCHEMY'
-      //      }
-      //  } 
         stage('Build') {
             steps {
                 ansiblePlaybook credentialsId: 'docker_prod_key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/var/lib/jenkins/workspace/test/hosts', playbook: '/var/lib/jenkins/workspace/test/build.yml'
@@ -26,8 +21,8 @@ pipeline {
             steps {  
                   withCredentials([sshUserPrivateKey(credentialsId: 'docker_prod_key', keyFileVariable: 'docker_key_variable', passphraseVariable: '', usernameVariable: '')]) {
                     sh 'chmod 777  /var/lib/jenkins/workspace/test/'
-                    sh 'scp -r -i $docker_key_variable root@3.133.133.128:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test' 
-                    sh 'scp -r -i $docker_key_variable root@3.133.133.128:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/htmlcov/  /var/lib/jenkins/workspace/test/htmlcov '
+                    sh 'scp -r -i $docker_key_variable root@3.143.23.116:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test' 
+                    sh 'scp -r -i $docker_key_variable root@3.143.23.116:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/htmlcov/  /var/lib/jenkins/workspace/test/htmlcov '
                 }
             }
         }
