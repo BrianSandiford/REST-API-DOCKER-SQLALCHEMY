@@ -21,8 +21,8 @@ pipeline {
             steps {  
                   withCredentials([sshUserPrivateKey(credentialsId: 'docker_prod_key', keyFileVariable: 'docker_key_variable', passphraseVariable: '', usernameVariable: '')]) {
                     sh 'chmod 777  /var/lib/jenkins/workspace/test/'
-                    sh 'scp -r -i $docker_key_variable root@3.143.23.116:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test' 
-                    sh 'scp -r -i $docker_key_variable root@3.143.23.116:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/htmlcov/  /var/lib/jenkins/workspace/test/htmlcov '
+                    sh 'scp -r -i $docker_key_variable root@3.16.217.31:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/reports/path.xml /var/lib/jenkins/workspace/test' 
+                    sh 'scp -r -i $docker_key_variable root@3.16.217.31:/root/demo-dockerfile/REST-API-DOCKER-SQLALCHEMY/htmlcov/  /var/lib/jenkins/workspace/test/htmlcov '
                 }
             }
         }
